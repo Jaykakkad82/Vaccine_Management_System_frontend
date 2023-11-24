@@ -1,0 +1,49 @@
+/* src/components/Login.css */
+
+body {
+    margin: 50;
+    font-family: 'Bookman Old Style', serif; /*Set font to Bookman style */
+    background: black;
+  }
+  
+  .login-container {
+    height: 80vh;
+    padding: 50px;
+    background: linear-gradient(to right, #ff8c00, #ff4500, #4169e1);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-box {
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Increase the size by 25% */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  input,
+  select,
+  button {
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background: #4169e1;
+    color: white;
+    cursor: pointer;
+  }
+  
