@@ -105,11 +105,13 @@
 
 import React, { useState } from 'react';
 import './Login.css'; // Import the CSS file for styling
+import AdminDashboard from './AdminDashboard'
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   const handleLogin = async () => {
     const formData = new FormData();
@@ -128,6 +130,7 @@ const Login = () => {
       if (response.ok) {
         // Successful login, redirect to admin page or handle accordingly
         console.log('Login successful:', data.user_type);
+        setLoggedInUser(data.user_type);
       } else {
         // Incorrect password or user does not exist, show a message
         console.error('Login failed:', data.message);
@@ -137,40 +140,10 @@ const Login = () => {
     }
   };
 
-//   const handleLogin = () => {
-//     // Handle login logic here based on username, password, and userType
-//     const handleLogin = async () => {
-//         const formData = new FormData();
-//         formData.append('username', username);
-//         formData.append('password', password);
-//         formData.append('userType', userType);
-      
-//         try {
-//           const response = await fetch('http://127.0.0.1:8000/api/login/', {
-//             method: 'POST',
-//             body: formData,
-//           });
-      
-//           const data = await response.json();
-      
-//           if (response.ok) {
-//             // Successful login, redirect to admin page or handle accordingly
-//             console.log('Login successful:', data.user_type);
-//           } else {
-//             // Incorrect password or user does not exist, show a message
-//             console.error('Login failed:', data.message);
-//           }
-//         } catch (error) {
-//           console.error('Error during login:', error);
-//         }
-//       };
-      
-
-
-//   };
-
-
-
+   // Render AdminDashboard if logged in as admin
+   if (loggedInUser === 'admin') {
+    return <AdminDashboard />;
+  }
 
   return (
     <div className="login-container">

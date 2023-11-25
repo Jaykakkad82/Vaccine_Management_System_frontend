@@ -1,0 +1,29 @@
+.admin-dashboard {
+    font-size: 20px; /* Adjust the font size as needed */
+    color: white
+  }
+  
+  .dashboard-section {
+    margin-top: 20px; /* Add some top margin between sections */
+    padding: 20px; /* Add padding to increase the size of the boxes */
+    border: 5px solid #ccc; /* Add a border for better visibility */
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 30px; /* Adjust the padding to make the button bigger */
+    font-size: 21px; /* Adjust the font size to make the text bigger */
+    border: 7px solid rgb(18, 70, 75);
+    color: white;
+    background-color: rgb(203, 75, 40);
+  }
+
+  /* AdminDashboard.css */
+
+.topwriteup {
+    font-size: 35px; /* Adjust the font size to make the h2 header bigger */
+    color: #d19c4d; /* Adjust the color to make the h2 header colorful */
+    padding: 20px;
+  }
+  
+  
