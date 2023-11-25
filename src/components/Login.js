@@ -106,6 +106,7 @@
 import React, { useState } from 'react';
 import './Login.css'; // Import the CSS file for styling
 import AdminDashboard from './AdminDashboard'
+import NurseDashboard from './NurseDashboard';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -143,6 +144,10 @@ const Login = () => {
    // Render AdminDashboard if logged in as admin
    if (loggedInUser === 'admin') {
     return <AdminDashboard />;
+  }
+
+  if (loggedInUser === 'nurse') {
+    return <NurseDashboard />;
   }
 
   return (

@@ -20,6 +20,9 @@
 
 import React, { useState } from 'react';
 import './AdminDashboard.css'; // Import a CSS file for styling
+import Info from './adminComp/Info';
+import PatientInfo from './adminComp/PatientInfo';
+import RegisterNurse from './adminComp/RegisterNurse';
 
 const AdminDashboard = () => {
   const [currentSection, setCurrentSection] = useState('');
@@ -45,16 +48,18 @@ const AdminDashboard = () => {
       {currentSection === 'delete-nurse' && <DeleteNurse />}
       {currentSection === 'add-vaccine' && <AddVaccine />}
       {currentSection === 'update-vaccine' && <UpdateVaccine />}
-      {currentSection === 'view-nurse-info' && <ViewNurseInfo />}
-      {currentSection === 'view-patient-info' && <ViewPatientInfo />}
+      {/* {currentSection === 'view-nurse-info' && <ViewNurseInfo />}
+      {currentSection === 'view-patient-info' && <ViewPatientInfo />} */}
+      {currentSection === 'view-nurse-info' && <Info type="nurse" />}
+      {currentSection === 'view-patient-info' && <PatientInfo />}
     </div>
   );
 };
 
 // Define your different sections as separate components
-const RegisterNurse = () => {
-  return <div className="dashboard-section">Register Nurse Section</div>;
-};
+// const RegisterNurse = () => {
+//   return <div className="dashboard-section">Register Nurse Section</div>;
+// };
 
 const UpdateNurse = () => {
   return <div className="dashboard-section">Update Nurse Info Section</div>;
@@ -72,12 +77,12 @@ const UpdateVaccine = () => {
   return <div className="dashboard-section">Update Vaccine Section</div>;
 };
 
-const ViewNurseInfo = () => {
-  return <div className="dashboard-section">View Nurse Info Section</div>;
-};
+// const ViewNurseInfo = () => {
+//   return <div className="dashboard-section">View Nurse Info Section</div>;
+// };
 
-const ViewPatientInfo = () => {
-  return <div className="dashboard-section">View Patient Info Section</div>;
-};
+// const ViewPatientInfo = () => {
+//   return <div className="dashboard-section">View Patient Info Section</div>;
+// };
 
 export default AdminDashboard;
