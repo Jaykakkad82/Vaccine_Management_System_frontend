@@ -8,6 +8,7 @@ const RegisterNurse = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [gender, setGender] = useState('');
   const [address, setAddress] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,11 +29,17 @@ const RegisterNurse = () => {
         body: formData,
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        console.log('Nurse registered successfully');
+        console.log('Success..... Nurse registered successfully!!! ');
+        setMessage('Success..... Nurse registered successfully!!! ');
+        setName(""); setAge("");setEmployeeId(""); setPhoneNumber(""); setGender(""); setAddress("");
+
         // You can add further actions like redirecting or showing a success message
       } else {
         console.error('Failed to register nurse');
+        setMessage(data.message);
       }
     } catch (error) {
       console.error('Error during nurse registration:', error);
@@ -41,6 +48,7 @@ const RegisterNurse = () => {
 
   return (
     <div className="dashboard-section">
+        {message && <p style={{ color: 'red' }}>{message}</p>}
       <h3>Register Nurse Section</h3>
       {/* Nurse registration form */}
       <form onSubmit={handleSubmit}>
@@ -76,6 +84,7 @@ const RegisterNurse = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
+      
     </div>
   );
 };
