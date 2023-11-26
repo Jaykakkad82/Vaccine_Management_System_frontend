@@ -7,6 +7,8 @@ import PatientInfo from './adminComp/PatientInfo';
 import RegisterNurse from './adminComp/RegisterNurse';
 import UpdateNurse from './adminComp/updateNurse';
 import DeleteNurse from './adminComp/DeleteNurse';
+import AddVaccine from './adminComp/AddVaccine';
+import UpdateVaccine from './adminComp/UpdateVaccine';
 
 const AdminDashboard = () => {
 const loggedInUser = useContext(UserContext);
@@ -49,12 +51,12 @@ const loggedInUser = useContext(UserContext);
 
 // Define your different sections as separate components
 
-const AddVaccine = () => {
-  return <div className="dashboard-section">Add Vaccine Section</div>;
-};
+// const AddVaccine = () => {
+//   return <div className="dashboard-section">Add Vaccine Section</div>;
+// };
 
-const UpdateVaccine = () => {
-  return <div className="dashboard-section">Update Vaccine Section</div>;
-};
+// const UpdateVaccine = () => {
+//   return <div className="dashboard-section">Update Vaccine Section</div>;
+// };
 
 export default AdminDashboard;

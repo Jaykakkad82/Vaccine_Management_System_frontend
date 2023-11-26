@@ -152,7 +152,7 @@ const Login = () => {
             return {
               ...prevUser,
               userType: data.user_type,
-              userId: data.user_id,
+              userId: parseInt(data.user_id, 10),
               name: data.name,
             };
           });
