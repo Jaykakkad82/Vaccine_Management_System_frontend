@@ -3,7 +3,7 @@
 body {
     margin: 50;
     font-family: 'Bookman Old Style', serif; /*Set font to Bookman style */
-    background: black;
+    background: rgb(4, 41, 60);
   }
   
   .login-container {

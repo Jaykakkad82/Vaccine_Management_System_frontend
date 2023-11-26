@@ -1,31 +1,15 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
 
-// const AdminDashboard = () => {
-//   return (
-//     <div>
-//       <h2>Admin Dashboard</h2>
-//       <Link to="/admin/register-nurse">Register Nurse</Link>
-//       <Link to="/admin/update-nurse">Update Nurse Info</Link>
-//       <Link to="/admin/delete-nurse">Delete Nurse</Link>
-//       <Link to="/admin/add-vaccine">Add Vaccine</Link>
-//       <Link to="/admin/update-vaccine">Update Vaccine</Link>
-//       <Link to="/admin/view-nurse-info">View Nurse Info</Link>
-//       <Link to="/admin/view-patient-info">View Patient Info</Link>
-//     </div>
-//   );
-// };
-
-// export default AdminDashboard;
-
-import React, { useState } from 'react';
+import React, { useContext,useState } from 'react';
+import { UserContext } from './Login';
 import './AdminDashboard.css'; // Import a CSS file for styling
 import Info from './adminComp/Info';
 import PatientInfo from './adminComp/PatientInfo';
 import RegisterNurse from './adminComp/RegisterNurse';
 import UpdateNurse from './adminComp/updateNurse';
+import DeleteNurse from './adminComp/DeleteNurse';
 
 const AdminDashboard = () => {
+const loggedInUser = useContext(UserContext);
   const [currentSection, setCurrentSection] = useState('');
 
   const handleNavigation = (section) => {
@@ -34,7 +18,13 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <h2 className ='topwriteup' >ADMINISTRATOR - Dashboard</h2>
+      {/* <h2 className='topwriteup'>Welcome {loggedInUser.name} - ADMINISTRATOR Dashboard</h2> */}
+      <h2 className='topwriteup'>
+        ADMINISTRATOR Dashboard
+        {loggedInUser && loggedInUser.name && (
+          <span>  --- Welcome {loggedInUser.name}</span>
+        )}
+      </h2>
       <button onClick={() => handleNavigation('register-nurse')}>Register Nurse</button>
       <button onClick={() => handleNavigation('update-nurse')}>Update Nurse Info</button>
       <button onClick={() => handleNavigation('delete-nurse')}>Delete Nurse</button>
@@ -58,17 +48,6 @@ const AdminDashboard = () => {
 };
 
 // Define your different sections as separate components
-// const RegisterNurse = () => {
-//   return <div className="dashboard-section">Register Nurse Section</div>;
-// };
-
-// const UpdateNurse = () => {
-//   return <div className="dashboard-section">Update Nurse Info Section</div>;
-// };
-
-const DeleteNurse = () => {
-  return <div className="dashboard-section">Delete Nurse Section</div>;
-};
 
 const AddVaccine = () => {
   return <div className="dashboard-section">Add Vaccine Section</div>;
@@ -77,13 +56,5 @@ const AddVaccine = () => {
 const UpdateVaccine = () => {
   return <div className="dashboard-section">Update Vaccine Section</div>;
 };
-
-// const ViewNurseInfo = () => {
-//   return <div className="dashboard-section">View Nurse Info Section</div>;
-// };
-
-// const ViewPatientInfo = () => {
-//   return <div className="dashboard-section">View Patient Info Section</div>;
-// };
 
 export default AdminDashboard;

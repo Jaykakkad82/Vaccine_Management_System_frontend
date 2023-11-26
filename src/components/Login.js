@@ -103,16 +103,25 @@
 // //no
 
 
-import React, { useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import './Login.css'; // Import the CSS file for styling
 import AdminDashboard from './AdminDashboard'
 import NurseDashboard from './NurseDashboard';
+
+export const UserContext = createContext();
+
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    console.log("Updated state:", loggedInUser);
+    // Any other actions you want to perform after the state update
+  }, [loggedInUser]);
 
   const handleLogin = async () => {
     const formData = new FormData();
@@ -127,11 +136,27 @@ const Login = () => {
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         // Successful login, redirect to admin page or handle accordingly
         console.log('Login successful:', data.user_type);
-        setLoggedInUser(data.user_type);
+        // setLoggedInUser({
+        //     userType: data.user_type,
+        //     userId: data.user_id,
+        //     name: data.name,
+        //   });
+        
+
+        setLoggedInUser((prevUser) => {
+            return {
+              ...prevUser,
+              userType: data.user_type,
+              userId: data.user_id,
+              name: data.name,
+            };
+          });
+          
       } else {
         // Incorrect password or user does not exist, show a message
         console.error('Login failed:', data.message);
@@ -141,16 +166,27 @@ const Login = () => {
     }
   };
 
-   // Render AdminDashboard if logged in as admin
-   if (loggedInUser === 'admin') {
-    return <AdminDashboard />;
-  }
+//    // Render AdminDashboard if logged in as admin
+//    if (loggedInUser.userType === 'admin') {
+//     return <AdminDashboard />;
+//   }
 
-  if (loggedInUser === 'nurse') {
-    return <NurseDashboard />;
+//   if (loggedInUser.userType === 'nurse') {
+//     return <NurseDashboard />;
+//   }
+
+// Render AdminDashboard if logged in as admin
+if (loggedInUser && loggedInUser.userType === 'admin') {
+    return <UserContext.Provider value={loggedInUser}><AdminDashboard /></UserContext.Provider>;
+  }
+  
+  // Render NurseDashboard if logged in as nurse
+  if (loggedInUser && loggedInUser.userType === 'nurse') {
+    return <UserContext.Provider value={loggedInUser}><NurseDashboard /> </UserContext.Provider>;
   }
 
   return (
+    <UserContext.Provider value={loggedInUser}>
     <div className="login-container">
       <div className="login-box">
         <h2>Login</h2>
@@ -181,7 +217,9 @@ const Login = () => {
         </form>
       </div>
     </div>
-  );
+  </UserContext.Provider>
+  ); //new comment
 };
 
 export default Login;
+

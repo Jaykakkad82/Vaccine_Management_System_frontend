@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+import { UserContext } from './Login';
 import './AdminDashboard.css'; // Import a CSS file for styling
 // import Info from './adminComp/Info';
 // import PatientInfo from './adminComp/PatientInfo';
 
 const NurseDashboard = () => {
   const [currentSection, setCurrentSection] = useState('');
+  const loggedInUser = useContext(UserContext);
 
   const handleNavigation = (section) => {
     setCurrentSection(section);
@@ -13,7 +15,11 @@ const NurseDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <h2 className ='topwriteup' >NURSE - Dashboard</h2>
+      <h2 className ='topwriteup' >NURSE - Dashboard
+      {loggedInUser && loggedInUser.name && (
+          <span>  --- Welcome {loggedInUser.name}</span>
+        )}
+      </h2>
       <button onClick={() => handleNavigation('updateInfo')}>Update My Info</button>
       <button onClick={() => handleNavigation('schedule-time')}>Schedule Me</button>
       <button onClick={() => handleNavigation('cancel-time')}>Cancel Slot</button>
