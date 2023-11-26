@@ -23,6 +23,7 @@ import './AdminDashboard.css'; // Import a CSS file for styling
 import Info from './adminComp/Info';
 import PatientInfo from './adminComp/PatientInfo';
 import RegisterNurse from './adminComp/RegisterNurse';
+import UpdateNurse from './adminComp/updateNurse';
 
 const AdminDashboard = () => {
   const [currentSection, setCurrentSection] = useState('');
@@ -61,9 +62,9 @@ const AdminDashboard = () => {
 //   return <div className="dashboard-section">Register Nurse Section</div>;
 // };
 
-const UpdateNurse = () => {
-  return <div className="dashboard-section">Update Nurse Info Section</div>;
-};
+// const UpdateNurse = () => {
+//   return <div className="dashboard-section">Update Nurse Info Section</div>;
+// };
 
 const DeleteNurse = () => {
   return <div className="dashboard-section">Delete Nurse Section</div>;
