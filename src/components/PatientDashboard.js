@@ -2,11 +2,8 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from './Login';
 import './AdminDashboard.css'; // Import a CSS file for styling
 import PatientUpdateMyInfo from './PatientComp/PatientUpdateMyinfo';
-// import UpdateMyInfo from './PatientComp/UpdateMyInfo';
-// import ScheduleTime from './PatientComp/ScheduleTime';
-// import CancelTime from './PatientComp/CancelTime';
-// import ViewMyInfo from './PatientComp/ViewMyInfo';
-// import Register from './PatientComp/Register';
+import BookAppointment from './PatientComp/BookAppointment';
+import CancelAppointment from './PatientComp/CancelAppointment';
 
 const PatientDashboard = () => {
   const [currentSection, setCurrentSection] = useState('');
@@ -33,8 +30,8 @@ const PatientDashboard = () => {
       {/* Render different sections based on the currentSection state */}
       
       {currentSection === 'updateInfo' && <PatientUpdateMyInfo />}
-      {currentSection === 'schedule-time' && <ScheduleTime />}
-      {currentSection === 'cancel-time' && <CancelTime />}
+      {currentSection === 'schedule-time' && <BookAppointment />}
+      {currentSection === 'cancel-time' && <CancelAppointment />}
       {currentSection === 'view-my-info' && <ViewMyInfo />}
     </div>
   );
@@ -42,50 +39,6 @@ const PatientDashboard = () => {
 
 
 
-// const Register = () => {
-//     // Add state and logic for the Register component
-  
-//     return (
-//       <div className="dashboard-section">
-//         <h3>Register</h3>
-//         {/* Add form elements and logic for registration */}
-//       </div>
-//     );
-//   };
-
-
-//   const UpdateMyInfo = () => {
-//     // Add state and logic for the Register component
-  
-//     return (
-//       <div className="dashboard-section">
-//         <h3>Update my Info</h3>
-//         {/* Add form elements and logic for registration */}
-//       </div>
-//     );
-//   };
-
-  const ScheduleTime = () => {
-    // Add state and logic for the Register component
-  
-    return (
-      <div className="dashboard-section">
-        <h3>Schedule Time</h3>
-        {/* Add form elements and logic for registration */}
-      </div>
-    );
-  };
-
-  const CancelTime = () => {
-    // Add state and logic for the Register component
-  
-    return (
-      <div className="dashboard-section">
-        <h3>Cancel Time</h3>
-        {/* Add form elements and logic for registration */}
-      </div>
-    );
-  };
 
   const ViewMyInfo = () => {
     // Add state and logic for the Register component
