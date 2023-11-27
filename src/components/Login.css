@@ -1,26 +1,31 @@
 /* src/components/Login.css */
 
 body {
-    margin: 50;
+    margin: 40;
     font-family: 'Bookman Old Style', serif; /*Set font to Bookman style */
     background: rgb(4, 41, 60);
   }
   
   .login-container {
     height: 80vh;
-    padding: 50px;
+    padding: 80px;
     background: linear-gradient(to right, #ff8c00, #ff4500, #4169e1);;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: large;
   }
   
   .login-box {
     background: white;
-    padding: 50px;
+    padding: 70px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 40%; /* Increase the size by 25% */
+    width: 50%; /* Increase the size by 25% */
+  }
+
+  .registration-form{
+    color: rgb(204, 204, 204)
   }
   
   form {
@@ -29,20 +34,20 @@ body {
   }
   
   label {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   
   input,
   select,
   button {
-    margin-bottom: 16px;
-    padding: 8px;
+    margin-bottom: 5px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
   button {
-    background: #4169e1;
+    /* background: #4169e1; */
     color: white;
     cursor: pointer;
   }

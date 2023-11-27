@@ -107,6 +107,8 @@ import React, { createContext, useState, useEffect } from 'react';
 import './Login.css'; // Import the CSS file for styling
 import AdminDashboard from './AdminDashboard'
 import NurseDashboard from './NurseDashboard';
+import PatientDashboard from './PatientDashboard';
+import RegisterPatient from './RegisterPatient';
 
 export const UserContext = createContext();
 
@@ -117,6 +119,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [registerPatient, setRegisterPatient] = useState(false);
 
   useEffect(() => {
     console.log("Updated state:", loggedInUser);
@@ -166,14 +169,19 @@ const Login = () => {
     }
   };
 
-//    // Render AdminDashboard if logged in as admin
-//    if (loggedInUser.userType === 'admin') {
-//     return <AdminDashboard />;
-//   }
+  const handleRegisterPatient = () => {
+    setRegisterPatient(true);
+  };
 
-//   if (loggedInUser.userType === 'nurse') {
-//     return <NurseDashboard />;
-//   }
+  if (registerPatient) {
+    return (
+      <div className="registration-form">
+        {/* Render RegisterPatient component */}
+        {/* <RegisterPatient /> */}
+        <RegisterPatient setRegisterPatient={setRegisterPatient} />
+      </div>
+    );
+  }
 
 // Render AdminDashboard if logged in as admin
 if (loggedInUser && loggedInUser.userType === 'admin') {
@@ -184,12 +192,16 @@ if (loggedInUser && loggedInUser.userType === 'admin') {
   if (loggedInUser && loggedInUser.userType === 'nurse') {
     return <UserContext.Provider value={loggedInUser}><NurseDashboard /> </UserContext.Provider>;
   }
+    // Render PatientDashboard if logged in as nurse
+    if (loggedInUser && loggedInUser.userType === 'patient') {
+      return <UserContext.Provider value={loggedInUser}><PatientDashboard /> </UserContext.Provider>;
+    }
 
   return (
     <UserContext.Provider value={loggedInUser}>
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+      <h2 style={{ fontSize: '35px', fontWeight: 'bold' }}>Login</h2>
         <form>
           <label>
             Username:
@@ -214,9 +226,13 @@ if (loggedInUser && loggedInUser.userType === 'admin') {
           <button type="button" onClick={handleLogin}>
             Login
           </button>
+          <button type="button" onClick={handleRegisterPatient}>
+                Register as New Patient
+              </button>
         </form>
       </div>
     </div>
+    {registerPatient && <RegisterPatient setRegisterPatient={setRegisterPatient} />}
   </UserContext.Provider>
   ); //new comment
 };
