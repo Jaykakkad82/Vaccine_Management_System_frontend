@@ -5,6 +5,8 @@ import './AdminDashboard.css'; // Import a CSS file for styling
 import UpdateMyInfo from './NurseComp/UpdateMyInfo';
 import VaccinationUpdate from './NurseComp/VaccinationUpdate'
 import MyInfoNurse from './NurseComp/MyInfoNurse';
+import ScheduleNurse from './NurseComp/ScheduleNurse';
+import CancelNurseTime from './NurseComp/CancelTimeslot';
 // import Info from './adminComp/Info';
 // import PatientInfo from './adminComp/PatientInfo';
 
@@ -31,8 +33,8 @@ const NurseDashboard = () => {
 
       {/* Render different sections based on the currentSection state */}
       {currentSection === 'updateInfo' && <UpdateMyInfo />}
-      {currentSection === 'schedule-time' && <ScheduleTime />}
-      {currentSection === 'cancel-time' && <CancelTime />}
+      {currentSection === 'schedule-time' && <ScheduleNurse />}
+      {currentSection === 'cancel-time' && <CancelNurseTime />}
       {currentSection === 'view-my-info' && <MyInfoNurse />}
       {currentSection === 'vaccination-update' && <VaccinationUpdate />}
       {/* {currentSection === 'view-nurse-info' && <ViewNurseInfo />}
@@ -46,13 +48,13 @@ const NurseDashboard = () => {
 //   return <div className="dashboard-section">Update My Info</div>;
 // };
 
-const ScheduleTime = () => {
-  return <div className="dashboard-section">Schedule My Time</div>;
-};
+// const ScheduleTime = () => {
+//   return <div className="dashboard-section">Schedule My Time</div>;
+// };
 
-const CancelTime = () => {
-  return <div className="dashboard-section">Cancel my Time</div>;
-};
+// const CancelTime = () => {
+//   return <div className="dashboard-section">Cancel my Time</div>;
+// };
 
 // const ViewMyInfo = () => {
 //   return <div className="dashboard-section">View My Info</div>;
