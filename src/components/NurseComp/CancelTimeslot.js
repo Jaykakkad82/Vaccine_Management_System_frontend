@@ -17,7 +17,7 @@ const CancelNurseTime = () => {
       console.log(data)
 
       if (response.ok) {
-        setBookedTimeslots(data.booked_timeslots || []);
+        setBookedTimeslots(data || []);
         setMessage('');
       } else {
         setMessage(data.message || 'Failed to fetch booked timeslots');
@@ -56,15 +56,15 @@ const CancelNurseTime = () => {
       <h3>Cancel Nurse Time Section</h3>
       <button onClick={handleSeeMyTimeslots}>See My Timeslots</button>
 
-      {bookedTimeslots.length > 0 && (
+      {bookedTimeslots.length >= 0 && (
         <div>
           <label>
             Select Timeslot to Cancel:
             <select value={selectedTimeslot} onChange={(e) => setSelectedTimeslot(e.target.value)}>
               <option value="">Select</option>
-              {bookedTimeslots.map((timeslot) => (
-                <option key={timeslot.timestamp} value={timeslot.timestamp}>
-                  {timeslot.timestamp}
+              {bookedTimeslots.map((timeslot,index) => (
+                <option key={index} value={timeslot}>
+                  {timeslot}
                 </option>
               ))}
             </select>

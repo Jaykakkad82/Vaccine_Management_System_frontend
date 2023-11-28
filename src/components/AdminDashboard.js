@@ -24,7 +24,7 @@ const loggedInUser = useContext(UserContext);
       <h2 className='topwriteup'>
         ADMINISTRATOR Dashboard
         {loggedInUser && loggedInUser.name && (
-          <span>  --- Welcome {loggedInUser.name}</span>
+          <span>   Welcome {loggedInUser.name}</span>
         )}
       </h2>
       <button onClick={() => handleNavigation('register-nurse')}>Register Nurse</button>

@@ -137,7 +137,7 @@ const BookAppointment = () => {
       if (response.ok) {
         setVaccineData(data.vaccine_data || []);
         setScheduleData(data.schedule_data || []);
-        setMessage('');
+        setMessage(data.message||'');
         setApptId('');
       } else {
         setMessage(data.message || 'Failed to fetch appointments');

@@ -18,7 +18,7 @@ const ScheduleNurse = () => {
       console.log(data)
 
       if (response.ok) {
-        setTimeslots(data.timeslots || []);             // this is assumed to be a list of timestamps {timeslots:[ts1,ts2]}
+        setTimeslots(data || []);             // this is assumed to be a list of timestamps {timeslots:[ts1,ts2]}
         setMessage('');
       } else {
         setMessage(data.message || 'Failed to fetch timeslots');
@@ -33,7 +33,7 @@ const ScheduleNurse = () => {
     formData.append('timestamp', selectedTimeslot);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/book-nurse-timeslot/`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/book-nurse-timeslot/${userId}/${userType}/`, {
         method: 'POST',
         body: formData,
       });
@@ -55,7 +55,7 @@ const ScheduleNurse = () => {
       <h3>Schedule Nurse Section</h3>
       <button onClick={handleGetTimeslots}>Get Timeslots</button>
 
-      {timeslots.length > 0 && (
+      {timeslots.length >= 0 && (
         <div>
           <label>
             Select Timeslot:

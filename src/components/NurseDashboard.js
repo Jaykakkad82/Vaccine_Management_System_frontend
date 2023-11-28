@@ -20,7 +20,7 @@ const NurseDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <h2 className ='topwriteup' >NURSE - Dashboard
+      <h2 className ='topwriteup' >NURSE Dashboard
       {loggedInUser && loggedInUser.name && (
           <span>  --- Welcome {loggedInUser.name}</span>
         )}

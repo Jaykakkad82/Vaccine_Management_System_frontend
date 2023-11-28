@@ -8,6 +8,8 @@ const RegisterNurse = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [gender, setGender] = useState('');
   const [address, setAddress] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -21,6 +23,8 @@ const RegisterNurse = () => {
     formData.append('phone_number', phoneNumber);
     formData.append('gender', gender);
     formData.append('address', address);
+    formData.append('username', username);
+    formData.append('password', password);
 
     try {
       // Send the data to the backend using fetch or your preferred method
@@ -82,6 +86,15 @@ const RegisterNurse = () => {
           <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
         </label>
         <br />
+        <label>
+          User name:
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label>
         <button type="submit">Submit</button>
       </form>
       

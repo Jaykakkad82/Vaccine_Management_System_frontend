@@ -4,6 +4,7 @@ import './AdminDashboard.css'; // Import a CSS file for styling
 import PatientUpdateMyInfo from './PatientComp/PatientUpdateMyinfo';
 import BookAppointment from './PatientComp/BookAppointment';
 import CancelAppointment from './PatientComp/CancelAppointment';
+import ViewPatientInfo from './PatientComp/ViewPatientInfo';
 
 const PatientDashboard = () => {
   const [currentSection, setCurrentSection] = useState('');
@@ -16,7 +17,7 @@ const PatientDashboard = () => {
   return (
     <div className="admin-dashboard">
       <h2 className="topwriteup">
-        PATIENT - Dashboard
+        PATIENT Dashboard
         {loggedInUser && loggedInUser.name && (
           <span> --- Welcome {loggedInUser.name}</span>
         )}
@@ -32,24 +33,12 @@ const PatientDashboard = () => {
       {currentSection === 'updateInfo' && <PatientUpdateMyInfo />}
       {currentSection === 'schedule-time' && <BookAppointment />}
       {currentSection === 'cancel-time' && <CancelAppointment />}
-      {currentSection === 'view-my-info' && <ViewMyInfo />}
+      {currentSection === 'view-my-info' && <ViewPatientInfo />}
     </div>
   );
 };
 
 
-
-
-  const ViewMyInfo = () => {
-    // Add state and logic for the Register component
-  
-    return (
-      <div className="dashboard-section">
-        <h3>View My Info</h3>
-        {/* Add form elements and logic for registration */}
-      </div>
-    );
-  };
 
 
   export default PatientDashboard;

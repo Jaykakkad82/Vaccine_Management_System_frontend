@@ -25,5 +25,22 @@
     color: #d48e24; /* Adjust the color to make the h2 header colorful */
     padding: 10px;
   }
+
+  .view-patient-info {
+    background-color: lightgray; /* Background color for the patient info container */
+    color: black;
+    padding: 20px; /* Padding for the container */
+    border-radius: 8px; /* Rounded corners for a nicer look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+    margin: 20px; /* Margin to create some space around the container */
+  }
+
+  .add-vaccine-section,.update-vaccine-section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 5px solid #ccc;
+  }
+
+
   
   

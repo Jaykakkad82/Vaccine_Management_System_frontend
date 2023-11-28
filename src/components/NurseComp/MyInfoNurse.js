@@ -29,14 +29,14 @@ const MyInfoNurse = () => {
   };
 
   return (
-    <div className="myinfo-nurse">
+    <div className="view-patient-info">
       <h2>Nurse Information</h2>
       <button onClick={handleDisplayInfo}>Display Info</button>
       {nurseInfo && (
         <div>
           <p>Employee ID: {nurseInfo.emp_id}</p>
           <p>Name: {nurseInfo.name}</p>
-          <p>Age: {nurseInfo.age}</p>
+          {/* <p>Age: {nurseInfo.age}</p> */}
           <p>Phone Number: {nurseInfo.phone_number}</p>
           <p>Address: {nurseInfo.address}</p>
           <p>Username: {nurseInfo.username}</p>
@@ -48,9 +48,9 @@ const MyInfoNurse = () => {
             ))}
           </ul> */}
           <p>Schedule Times:</p>
-            {Array.isArray(nurseInfo.scheduleTimes) && nurseInfo.scheduleTimes.length > 0 ? (
+            {Array.isArray(nurseInfo.schedule_times) && nurseInfo.schedule_times.length > 0 ? (
             <ul>
-                {nurseInfo.scheduleTimes.map((time, index) => (
+                {nurseInfo.schedule_times.map((time, index) => (
                 <li key={index}>{time}</li>
                 ))}
             </ul>
