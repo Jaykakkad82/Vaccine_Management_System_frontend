@@ -1,4 +1,4 @@
-# Vaccine Management System - Frontend codde in React
+# Vaccine Management System - Frontend code in REACT.js
 This React code is part of the Vaccine Management System project. 
 We built a 3-tier architecture with front-end in REACT.js, back-end in Django (Python) and Mysql database.
 
